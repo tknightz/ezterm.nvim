@@ -7,40 +7,40 @@ local M = {}
 
 
 local function change_direction(prompt_bufnr, direction)
-    local entry = actions.get_selected_entry(prompt_bufnr)
-    if not entry then
-        return
-    end
+	local entry = actions.get_selected_entry(prompt_bufnr)
+	if not entry then
+		return
+	end
 
-    ezterm.change_direction(entry.bufnr, direction)
+	ezterm.change_direction(entry.bufnr, direction)
 end
 
 M.open_term = function(prompt_bufnr, enter_insert)
-    local entry = actions.get_selected_entry(prompt_bufnr)
-    if not entry then
-        return
-    end
-    ezterm.open_term(entry.bufnr, enter_insert)
+	local entry = actions.get_selected_entry(prompt_bufnr)
+	if not entry then
+		return
+	end
+	ezterm.open_term(entry.bufnr, enter_insert)
 end
 
 M.change_direction_center = function(prompt_bufnr)
-    return change_direction(prompt_bufnr, "center")
+	return change_direction(prompt_bufnr, "center")
 end
 
 M.change_direction_top = function(prompt_bufnr)
-    return change_direction(prompt_bufnr, "top")
+	return change_direction(prompt_bufnr, "top")
 end
 
 M.change_direction_bottom = function(prompt_bufnr)
-    return change_direction(prompt_bufnr, "bottom")
+	return change_direction(prompt_bufnr, "bottom")
 end
 
 M.change_direction_left = function(prompt_bufnr)
-    return change_direction(prompt_bufnr, "left")
+	return change_direction(prompt_bufnr, "left")
 end
 
 M.change_direction_right = function(prompt_bufnr)
-    return change_direction(prompt_bufnr, "right")
+	return change_direction(prompt_bufnr, "right")
 end
 
 return transform_mod(M)

@@ -158,6 +158,10 @@ M.ezterm_command = function()
     local theme_set = config.theme and "theme=get_" .. config.theme or " "
     local previewer_set = config.previewer and "" or "previewer=false"
 
+    if not pcall(require, "telescope") then
+        vim.cmd[[PackerLoad telescope.nvim]]
+    end
+
     local cmd = string.format("Telescope ezterm %s %s", theme_set, previewer_set)
     vim.cmd(cmd)
 end

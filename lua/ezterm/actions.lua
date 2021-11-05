@@ -1,4 +1,4 @@
-local actions = require('telescope.actions')
+local actions = require('telescope.actions.state')
 local ezterm = require('ezterm')
 local transform_mod = require('telescope.actions.mt').transform_mod
 

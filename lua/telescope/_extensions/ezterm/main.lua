@@ -1,7 +1,6 @@
 local pickers = require('telescope.pickers')
 local conf = require('telescope.config').values
 local action_state = require('telescope.actions.state')
-local previewers = require('telescope.previewers')
 local ezaction = require('ezterm.actions')
 local action_set = require('telescope.actions.set')
 
@@ -24,7 +23,7 @@ end
 
 local function show_previewer(opts)
 	if state.previewer or state.previewer == nil then
-		return previewers.buffers.new(opts)
+		return conf.grep_previewer(opts)
 	end
 	return state.previewer
 end

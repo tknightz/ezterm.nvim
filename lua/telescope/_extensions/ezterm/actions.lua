@@ -1,4 +1,4 @@
-local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
 local ezterm = require('ezterm')
 local transform_mod = require('telescope.actions.mt').transform_mod
 
@@ -7,7 +7,7 @@ local M = {}
 
 
 local function change_direction(prompt_bufnr, direction)
-	local entry = actions.get_selected_entry(prompt_bufnr)
+	local entry = action_state.get_selected_entry(prompt_bufnr)
 	if not entry then
 		return
 	end
@@ -16,7 +16,7 @@ local function change_direction(prompt_bufnr, direction)
 end
 
 M.rename_term = function(prompt_bufnr)
-	local entry = actions.get_selected_entry(prompt_bufnr)
+	local entry = action_state.get_selected_entry(prompt_bufnr)
 	local new_name = vim.fn.input('Rename to: ')
 
 	vim.api.nvim_buf_set_name(entry.bufnr, new_name)
@@ -25,7 +25,7 @@ end
 
 
 M.open_term = function(prompt_bufnr, enter_insert)
-	local entry = actions.get_selected_entry(prompt_bufnr)
+	local entry = action_state.get_selected_entry(prompt_bufnr)
 	if not entry then
 		return
 	end

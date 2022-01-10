@@ -59,6 +59,7 @@ M.create_win = function(direction, bufnr, enter)
 
 	local win = vim.api.nvim_open_win(bufnr, _enter, opts)
 	vim.api.nvim_win_set_option(win, "cursorline", true)
+	vim.cmd[[setlocal nobuflisted]]
 
 	return {
 		win = win,

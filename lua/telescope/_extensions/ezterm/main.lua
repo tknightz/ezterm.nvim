@@ -70,6 +70,7 @@ M.ezterm = function(opts)
 			map('i', '<C-Down>', ezaction.change_direction_bottom)
 			map('i', '<C-i>', ezaction.change_direction_center)
 			map('i', '<C-n>', _actions.rename_term)
+			map('i', '<CR>', ezaction.open_term)
 
 			action_set.select:replace(on_term_selected)
 			return true
